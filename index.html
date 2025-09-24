@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шкурков Ярослав - Визитка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .visiting-card {
+            background: white;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #667eea;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: #667eea;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .about, .interests {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .interests-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .interests-list li {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid #e9ecef;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin-top: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .photo-placeholder {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* ФИОЛЕТОВЫЕ КОММЕНТАРИИ ДЛЯ ЯРОСЛАВА */
+        .purple-comment {
+            color: #8b00ff;
+            background-color: #f0e6ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+            border-left: 3px solid #8b00ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="visiting-card">
+        <!-- ФИОЛЕТОВЫЙ КОММЕНТАРИЙ: Исправлено на фото с именем 1.jpg -->
+        <div class="purple-comment">
+            ✅ ИСПРАВЛЕНО: Фото загружается из файла <strong>1.jpg</strong>
+        </div>
+        
+        <!-- Блок для фотографии -->
+        <div class="photo-container">
+            <!-- ФИОЛЕТОВЫЙ КОММЕНТАРИЙ: Теперь используется 1.jpg вместо photo.jpg -->
+            <img src="1.jpg" alt="Фото Ярослава" class="photo" onerror="this.style.display='none'; document.querySelector('.photo-placeholder').style.display='block';">
+            <div class="photo-placeholder" style="display: none;">📷 Ваше фото (1.jpg)</div>
+        </div>
+        
+        <div class="name">Шкурков Ярослав Николаевич</div>
+        <div class="divider"></div>
+        
+        <div class="about">
+            <div class="section-title">О себе:</div>
+<p>Окончил гимназию №17 в городе Черкесск. Занимался баскетболом, но что-то пошло не так. Люблю увлекаться странными делами и находить необычные
+
+дходы к обычным вещам.</p>
+        </div>
+
+        <div class="interests">
+            <div class="section-title">Интересы:</div>
+            <ul class="interests-list">
+                <li>📚 Книги</li>
+                <li>💪 Спорт</li>
+                <li>❤️ КАТЯ!!!</li>
+            </ul>
+        </div>
+
+        <div class="quote">
+            "Главное - чтобы было интересно!"
+        </div>
+        
+        <!-- ФИОЛЕТОВЫЙ КОММЕНТАРИЙ: Убедитесь, что файл называется именно 1.jpg -->
+        <div class="purple-comment">
+            🔍 Убедитесь, что файл называется <strong>1.jpg</strong> (а не 1.JPG или 1.jpeg)
+        </div>
+    </div>
+
+    <script>
+        // ФИОЛЕТОВЫЙ КОММЕНТАРИЙ В JS: Теперь проверяет загрузку 1.jpg
+        window.addEventListener('load', function() {
+            const img = document.querySelector('.photo');
+            setTimeout(function() {
+                if (img.naturalWidth === 0) {
+                    img.style.display = 'none';
+                    document.querySelector('.photo-placeholder').style.display = 'flex';
+                    document.querySelector('.photo-placeholder').innerHTML = '📷 Фото 1.jpg не найдено';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
